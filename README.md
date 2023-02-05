@@ -29,4 +29,10 @@ Steps to run Framework
 8. Run following commands 
    1. Change Directory to target folder using -> cd target
    2. Run command - allure serve allure-results
+9. ![Report](https://github.com/Theron-11222018/DafaBet-API-Assessment/blob/main/ReportScreenshots/1.JPG)
+10 ![Report](https://github.com/Theron-11222018/DafaBet-API-Assessment/blob/main/ReportScreenshots/2.JPG)
+11 ![Report](https://github.com/Theron-11222018/DafaBet-API-Assessment/blob/main/ReportScreenshots/3.JPG)
+12 ![Report](https://github.com/Theron-11222018/DafaBet-API-Assessment/blob/main/ReportScreenshots/4.JPG)
+13 ![Report](https://github.com/Theron-11222018/DafaBet-API-Assessment/blob/main/ReportScreenshots/5.JPG)
+
 
