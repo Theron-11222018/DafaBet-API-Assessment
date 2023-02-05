@@ -1,6 +1,8 @@
 import io.qameta.allure.*;
 import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import org.apache.commons.validator.GenericValidator;
+import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -25,8 +27,12 @@ public class UnixDateTimeStampTestCases {
     @Test(dataProvider = "unixTimeStampToDateTestData")
     public void validatingUnixTimeStampToDateString(String timeStamp, String date) {
         Response response = given().get(endpoint + timeStamp);
+        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.contentType(), "application/json");
         Assert.assertEquals(response.getBody().asString(), date);
         Assert.assertTrue(GenericValidator.isDate(response.getBody().asString(), "\"yyyy-MM-dd hh:mm:ss\"", true));
+        ValidatableResponse v = response.then();
+        v.time(Matchers.lessThan(1000L));
     }
 
     @DataProvider(name = "unixTimeStampToDateTestData")
@@ -50,7 +56,11 @@ public class UnixDateTimeStampTestCases {
     @Test(dataProvider = "incorrectValuesTestData")
     public void validatingIncorrectValues(String input) {
         Response response = given().get(endpoint + input);
+        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.contentType(), "application/json");
         Assert.assertEquals(response.getBody().asString(), "false");
+        ValidatableResponse v = response.then();
+        v.time(Matchers.lessThan(5000L));
     }
 
     @DataProvider(name = "incorrectValuesTestData")

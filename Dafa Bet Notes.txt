@@ -1,0 +1,13 @@
+How the framework can be framework can be imporved 
+- Having a constant files or properties file for keeping end points 
+- Having utils for api calls 
+
+Issues Faced:
+- Looks like some caching for Api is happening as was getting Fordbidden error
+
+
+- Issues with Apis:
+- Provided Api's have some caching issues 
+- Provided Api's can be be made secure  using Authenticate schemes 
+- In case of incorrect input some error message can be provided for interpeting the results
+- Load Testing to see the performance
